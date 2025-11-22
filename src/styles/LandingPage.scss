@@ -1,0 +1,202 @@
+// Import color variables and mixins
+$primary-color: #61dafb;
+$secondary-color: #4fa8d5;
+$bg-dark: #1a1a1a;
+$bg-card: #2d2d2d;
+$border-color: #444;
+$text-primary: rgba(255, 255, 255, 0.87);
+$text-secondary: rgba(255, 255, 255, 0.7);
+$text-muted: rgba(255, 255, 255, 0.5);
+$primary-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
+
+@mixin transition($properties...) {
+  transition: $properties;
+}
+
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // Header Styles
+  .header {
+    background-color: $bg-dark;
+    border-bottom: 1px solid $border-color;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 20px;
+    }
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    a {
+      color: $text-primary;
+      text-decoration: none;
+      @include transition(color 0.3s ease);
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  // Hero Section
+  .hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $bg-dark 0%, $bg-card 100%);
+    padding: 4rem 20px;
+    text-align: center;
+
+    .container {
+      max-width: 800px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: $primary-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: $text-secondary;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .cta-button {
+    background: $primary-gradient;
+    color: $bg-dark;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    @include transition(transform 0.3s ease, box-shadow 0.3s ease);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(97, 218, 251, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Features Section
+  .features {
+    padding: 4rem 20px;
+    background-color: $bg-dark;
+
+    .container {
+      max-width: 1200px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      color: $primary-color;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background-color: $bg-card;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    @include transition(transform 0.3s ease, border-color 0.3s ease);
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: $primary-color;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: $primary-color;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: $bg-dark;
+    border-top: 1px solid $border-color;
+    padding: 2rem 20px;
+    text-align: center;
+    margin-top: auto;
+
+    p {
+      color: $text-muted;
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .nav ul {
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+
+    .features h2 {
+      font-size: 1.5rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+    }
+  }
+}

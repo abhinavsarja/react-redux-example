@@ -6,7 +6,7 @@ interface BlogPageProps {
   slug: string
 }
 
-const BlogPage: React.FC<BlogPageProps> = ({ title, slug }) => {
+const BlogPage: React.FC<BlogPageProps> = ({ title }) => {
   return (
     <div className="blog-page">
       <header className="blog-header">

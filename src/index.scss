@@ -1,13 +1,22 @@
 // Color variables
-$primary-color: #61dafb;
-$secondary-color: #4fa8d5;
-$bg-dark: #1a1a1a;
-$bg-darker: #242424;
-$bg-card: #2d2d2d;
-$border-color: #444;
-$text-primary: rgba(255, 255, 255, 0.87);
+$primary-color: #3b82f6;
+$secondary-color: #1e40af;
+$bg-dark: #0f172a;
+$bg-darker: #020617;
+$bg-card: #1e293b;
+$border-color: #334155;
+$text-primary: rgba(255, 255, 255, 0.95);
 $text-secondary: rgba(255, 255, 255, 0.7);
 $text-muted: rgba(255, 255, 255, 0.5);
+
+// Light mode colors
+$light-bg-dark: #f8fafc;
+$light-bg-darker: #ffffff;
+$light-bg-card: #f1f5f9;
+$light-border-color: #cbd5e1;
+$light-text-primary: rgba(15, 23, 42, 0.95);
+$light-text-secondary: rgba(15, 23, 42, 0.7);
+$light-text-muted: rgba(15, 23, 42, 0.5);
 
 // Transition mixins
 @mixin transition($properties...) {
@@ -20,9 +29,35 @@ $text-muted: rgba(255, 255, 255, 0.5);
   }
 }
 
+// CSS Variables for theming
 :root {
-  color: $text-primary;
-  background-color: $bg-darker;
+  // Dark mode (default)
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --bg-dark: #{$bg-dark};
+  --bg-darker: #{$bg-darker};
+  --bg-card: #{$bg-card};
+  --color-border: #{$border-color};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-muted: #{$text-muted};
+}
+
+:root[data-theme='light'] {
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --bg-dark: #{$light-bg-dark};
+  --bg-darker: #{$light-bg-darker};
+  --bg-card: #{$light-bg-card};
+  --color-border: #{$light-border-color};
+  --text-primary: #{$light-text-primary};
+  --text-secondary: #{$light-text-secondary};
+  --text-muted: #{$light-text-muted};
+}
+
+:root {
+  color: var(--text-primary);
+  background-color: var(--bg-darker);
 }
 
 * {
@@ -41,4 +76,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-darker);
+  color: var(--text-primary);
+  @include transition(background-color 0.3s ease, color 0.3s ease);
 }

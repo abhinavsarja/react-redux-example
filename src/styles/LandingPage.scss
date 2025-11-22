@@ -1,6 +1,6 @@
 // Import color variables and mixins
-$primary-color: #3b82f6;
-$secondary-color: #1e40af;
+$primary-color: #60a5fa;
+$secondary-color: #3b82f6;
 $primary-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
 
 @mixin transition($properties...) {

@@ -1,9 +1,11 @@
 import React from 'react'
 import '../styles/LandingPage.scss'
 import ThemeToggle from '../components/ThemeToggle'
+import { useNavigate } from 'react-router-dom'
 
 const LandingPage: React.FC = () => {
   const githubUrl = 'https://github.com/abhinavsarja'
+  const navigate = useNavigate()
 
   return (
     <div className="landing-page">
@@ -14,9 +16,10 @@ const LandingPage: React.FC = () => {
             <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="#blogs">Blogs</a></li>
-              <li><a href="#react">React</a></li>
+              <li><a onClick={() => navigate('/blogs/react')}>React</a></li>
               <li><a href="#ai">AI</a></li>
               <li><a href="#java">Java</a></li>
+              <li><a href="#aws">AWS</a></li>
               <li>
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="github-link">
                   GitHub
@@ -47,7 +50,12 @@ const LandingPage: React.FC = () => {
               <div className="blog-icon">⚛️</div>
               <h3>React</h3>
               <p>Deep dive into React, hooks, state management, and modern web development patterns.</p>
-              <button className="blog-btn">Coming Soon</button>
+              <button 
+                className="blog-btn"
+                onClick={() => navigate('/blogs/react')}
+              >
+                View Blogs
+              </button>
             </div>
             <div id="ai" className="blog-card">
               <div className="blog-icon">🤖</div>
@@ -59,6 +67,12 @@ const LandingPage: React.FC = () => {
               <div className="blog-icon">☕</div>
               <h3>Java</h3>
               <p>Enterprise Java, Spring Framework, design patterns, and backend development best practices.</p>
+              <button className="blog-btn">Coming Soon</button>
+            </div>
+            <div id="aws" className="blog-card">
+              <div className="blog-icon">☁️</div>
+              <h3>AWS</h3>
+              <p>Cloud computing, serverless architecture, and AWS services for scalable applications.</p>
               <button className="blog-btn">Coming Soon</button>
             </div>
           </div>

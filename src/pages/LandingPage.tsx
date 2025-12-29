@@ -38,7 +38,12 @@ const LandingPage: React.FC = () => {
           <h2>Abhinav Sarja</h2>
           <p>Full Stack Developer | Tech Blogging Enthusiast</p>
           <p className="subtitle">Exploring Java, React, AI, and AWS through code and stories</p>
-          <a href="#blogs" className="cta-button">Read My Blogs</a>
+          <div className="hero-buttons">
+            <a href="#blogs" className="cta-button">Read My Blogs</a>
+            <button className="stats-button" onClick={() => alert('Blog Statistics: Coming Soon!')}>
+              📊 Blog Statistics
+            </button>
+          </div>
         </div>
       </section>
 

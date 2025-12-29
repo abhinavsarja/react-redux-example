@@ -5,6 +5,34 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.disclaimer-banner {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.05));
+  border-bottom: 2px solid var(--color-primary);
+  padding: 1.5rem 0;
+  transition: all 0.3s ease;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .disclaimer-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+    transition: color 0.3s ease;
+
+    strong {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
+}
+
 .blog-header {
   background-color: var(--bg-dark);
   border-bottom: 2px solid var(--color-primary);

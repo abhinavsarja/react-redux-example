@@ -121,7 +121,37 @@ $primary-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(97, 218, 251, 0.3);
+      box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stats-button {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.65rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    @include transition(all 0.3s ease);
+
+    &:hover {
+      background: var(--color-primary);
+      color: var(--bg-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
     }
 
     &:active {

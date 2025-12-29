@@ -1,0 +1,252 @@
+.learning-page {
+  min-height: 100vh;
+  background-color: var(--bg-darker);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.learning-header {
+  background-color: var(--bg-dark);
+  border-bottom: 2px solid var(--color-primary);
+  padding: 2rem 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .dev-only-badge {
+    display: inline-block;
+    background-color: rgba(96, 165, 250, 0.2);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.learning-content {
+  padding: 3rem 0;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .concepts-list {
+    margin-bottom: 3rem;
+  }
+
+  .concept-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+
+    &.expanded {
+      box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
+    }
+
+    .concept-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(96, 165, 250, 0.05);
+      }
+
+      h3 {
+        margin: 0;
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+
+      .toggle-icon {
+        color: var(--color-primary);
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .concept-description {
+      padding: 0 1.5rem;
+      color: var(--text-secondary);
+      margin: 0 0 1rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .concept-details {
+      border-top: 1px solid var(--color-border);
+      padding: 1.5rem;
+      background-color: rgba(96, 165, 250, 0.02);
+      animation: slideDown 0.3s ease;
+
+      .code-block {
+        margin-bottom: 1.5rem;
+
+        h4 {
+          color: var(--color-primary);
+          margin-bottom: 0.5rem;
+        }
+
+        pre {
+          background-color: var(--bg-darker);
+          padding: 1rem;
+          border-radius: 5px;
+          overflow-x: auto;
+          margin: 0;
+
+          code {
+            color: var(--text-primary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+          }
+        }
+      }
+
+      .resources {
+        h4 {
+          color: var(--color-primary);
+          margin-bottom: 0.5rem;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            padding-left: 1.5rem;
+            position: relative;
+
+            &:before {
+              content: '→';
+              position: absolute;
+              left: 0;
+              color: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .learning-notes {
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .notes-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        color: var(--color-primary);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          color: var(--text-secondary);
+          margin-bottom: 0.8rem;
+          padding-left: 1.5rem;
+          position: relative;
+          line-height: 1.6;
+
+          &:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .learning-header {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .learning-content {
+    .concept-card {
+      .concept-header {
+        padding: 1rem;
+      }
+
+      .concept-description {
+        padding: 0 1rem;
+      }
+
+      .concept-details {
+        padding: 1rem;
+      }
+    }
+
+    .learning-notes {
+      padding: 1.5rem;
+    }
+  }
+}
